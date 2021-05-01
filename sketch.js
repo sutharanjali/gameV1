@@ -9,6 +9,9 @@ let diam2 = 50; //player diameter
 let state = 'titlePage';
 let cnv;
 
+let points = 0;
+let speed = 2;
+
 function setup() {
   cnv = createCanvas(600, 600);
   noStroke();
@@ -54,10 +57,19 @@ function mainPage() {
   fill('red');
   ellipse(x, y - 25, diam1);
 
-  y += 2;
+  y += speed;
   if (y >= height + 40) {
     y = 0;
+    points++;
   }
+  textSize(30);
+  text(points,50,50);
+
+
+//increase speed every 5 points //HOW TO TEST FOR THIS WTF
+  // if(points % 5){
+  //   speed ++;
+  // }
 
   //player
   fill('white');
